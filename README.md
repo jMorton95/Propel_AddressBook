@@ -8,7 +8,7 @@ Built a simple single page front-end app that imports an Array of Objects from a
 
 With a background entirely in Vanilla Front-End builds to date, this has been a challenge right to configure right from the start.
 
-<-- Key Learning Points:  -->
+<-- Key Learning Points:  -->  
 This has pushed me to learn new JS techniques, such as:  
 
 -- An extensible DOM Element producing Function that takes a tag type, class, text content and any number of children Elements to append and returns a new DOM     Object.
