@@ -3,3 +3,31 @@
     align-items: center;
     justify-content: center;
 }
+
+@mixin cardDisplay {
+    background-color: hsla(194, 55%, 70%, 0.35);
+    border: solid rgb(0,0,0) 1px;
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0);
+}
+
+@mixin sidesPadding {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+@mixin buttonBase {
+    @include flexCenter; 
+    transition: all 100ms ease-in;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-radius: 6px;
+
+    &:hover{
+        background:hsla(120, 27%, 45%, 0.3);
+    }
+
+    &:active{
+        scale: 0.9;
+    }
+}
