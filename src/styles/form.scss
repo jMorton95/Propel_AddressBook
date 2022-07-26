@@ -1,0 +1,44 @@
+@import "./mixins.scss";
+@import "./main.scss";
+
+.formContainer{
+    transition: 1s all linear;
+    width: 100%;
+    display: none;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: start;
+    grid-template-columns: repeat(5, 200px);
+    gap: 2px;
+    padding-bottom: 50px;
+
+    *{
+        @include flexCenter;
+        
+    }
+
+    button{
+        @include buttonBase;
+        margin-left: 25px;
+        width: 100px;
+        height: 35px;
+        background: var(--backgroundBlue);
+    }
+}
+
+.formActive{
+    flex-grow: 0.1;
+    display: grid;
+}
+
+.addressInput {
+    border: none;
+    text-decoration: none;
+    outline: none;
+    text-align: center;
+    height: 30px;
+
+    &:focus{
+        outline: 1px solid green;
+    }
+}

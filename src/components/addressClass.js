@@ -1,9 +1,12 @@
 class Address {
 
     constructor(firstName, lastName, phone, email){
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.first_name = firstName;
+        this.last_name = lastName;
         this.phone = phone;
         this.email = email;
     };
+
 };
+
+export { Address };

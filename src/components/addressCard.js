@@ -7,6 +7,7 @@ import { newElement, updateAddress, deleteAddress } from "./functions";
     passed down through our function calls in Index.JS */
 
 const cardTop = function(addressEntry) {
+
     const cardFirstName = newElement('div', 'firstName', addressEntry.first_name);
     const cardLastName = newElement('div', 'lastName', addressEntry.last_name);
 
@@ -14,6 +15,7 @@ const cardTop = function(addressEntry) {
 }
 
 const cardMid = function(addressEntry) {
+
     const cardPhone = newElement('text', 'phone', addressEntry.phone);
     const cardAddress = newElement('div', 'address', addressEntry.email);
 
@@ -21,6 +23,7 @@ const cardMid = function(addressEntry) {
 }
 
 const cardBot = function(addressEntry, updateEvent, deleteEvent) {
+
     const cardUpdate = newElement('button', 'update', 'Update');
     cardUpdate.addEventListener('click', () => { updateEvent(addressEntry) });
 
@@ -30,12 +33,17 @@ const cardBot = function(addressEntry, updateEvent, deleteEvent) {
     return newElement('div', 'cardBot', '', cardUpdate, cardDelete);
 }
 
+/**In addressCard we're sliding our current Address JSON index.
+ * Then Creating our new Address Card with our newElement function 
+ * with parameters for: Tag Type, Class Name, textContent (empty), then our 3 child nodes.
+ * Our cardBot takes additional Event functions as parameters.
+ */
+
 const addressCard = function(addressEntry) {
     return newElement('div', 'cardContainer', '',
      cardTop(addressEntry),
      cardMid(addressEntry),
-     cardBot(addressEntry,
-     updateAddress));
+     cardBot(addressEntry, updateAddress));
 }
 
 export { addressCard };
