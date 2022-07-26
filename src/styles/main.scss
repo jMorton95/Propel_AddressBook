@@ -1,0 +1,57 @@
+@import "./mixins.scss";
+
+@font-face {
+    font-family: 'FantasqueSansMono';
+    src: url('../fonts/FantasqueSansMono-Regular.woff2') format('woff2'),
+      url('../fonts/FantasqueSansMono-Regular.woff') format('woff');
+}
+
+:root{
+    --fontSize: 18px;
+}
+
+*{
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+   //border: 1px solid black;
+   font-family: FantasqueSansMono;
+   font-size: var(--fontSize);
+}
+
+body{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-rows: 100px 1fr 50px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+
+    div{
+
+    }
+}
+
+main{
+    margin: 25px;
+
+    .mainContainer{
+        display: grid;
+        grid-template-rows: repeat(auto-fill, max-content);
+
+        &>div{
+            height: 100px;
+            width: 100px;
+        }
+    }
+
+}
+footer{
+}
+
+header > div, footer{
+    @include flexCenter;
+}
