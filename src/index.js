@@ -1,4 +1,4 @@
-import AddressBook from "./data/address.json";
+import AddressBook from "./database/address.json";
 import { addressCard } from "./components/addressCard";
 import { toggleNewForm, submitNewAddress } from "./components/functions";
 import GitHubImg from "./images/github.svg";
@@ -41,8 +41,20 @@ const AddButtonEvents = (function () {
 })();
 
 
+
+async function getData() {
+    const response = await fetch('http://localhost:3000/address_book');
+    const addressEntry = await response.json();
+    addressEntry.forEach(adr => MainSelectors.mainContainer.appendChild(addressCard(adr)));
+};
+
+getData();
+
+
+
+    
 /*Creates an AddressCard for each Address in the default address.JSON flat file */
-AddressBook.forEach(address => {
-    MainSelectors.mainContainer.appendChild(addressCard(address));
-});
+// AddressBook.forEach(address => {
+//     MainSelectors.mainContainer.appendChild(addressCard(address));
+// });
 

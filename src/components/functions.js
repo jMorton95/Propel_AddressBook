@@ -1,4 +1,4 @@
-import AddressBook from "../data/address.json";
+import AddressBook from "../database/address.json";
 import { Address } from "./addressClass";
 /**Here we take an bunch of logical parameters, with our last being an open ended parameter with a
  * spread operator for as many children elements as we wish to append, then return a our new element.
