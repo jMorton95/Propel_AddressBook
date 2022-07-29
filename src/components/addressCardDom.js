@@ -39,11 +39,11 @@ const cardBot = function(addressEntry, updateEvent, deleteEvent) {
  * Our cardBot takes additional Event functions as parameters.
  */
 
-const addressCard = function(addressEntry) {
+const newAddressCard = function(addressEntry) {
     return newElement('div', 'cardContainer', '',
      cardTop(addressEntry),
      cardMid(addressEntry),
      cardBot(addressEntry, updateAddress));
 }
 
-export { addressCard };
+export { newAddressCard };

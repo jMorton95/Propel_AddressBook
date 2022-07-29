@@ -1,5 +1,4 @@
-import AddressBook from "./database/address.json";
-import { addressCard } from "./components/addressCard";
+import { newAddressCard } from "./components/addressCardDom";
 import { toggleNewForm, submitNewAddress } from "./components/functions";
 import GitHubImg from "./images/github.svg";
 import MainStyle from "./styles/main.scss";
@@ -31,7 +30,7 @@ const AddButtonEvents = (function () {
         then create a new AddressCard with our new Object */
     MainSelectors.confirmNewAddress.addEventListener("click", () => {
       MainSelectors.mainContainer.appendChild(
-        addressCard(submitNewAddress(MainSelectors.formInputs))
+        newAddressCard(submitNewAddress(MainSelectors.formInputs))
       );
       AddressBook.push(submitNewAddress(MainSelectors.formInputs));
       console.log(AddressBook);
@@ -41,20 +40,41 @@ const AddButtonEvents = (function () {
 })();
 
 
-
-async function getData() {
+const getData =  async () => {
     const response = await fetch('http://localhost:3000/address_book');
-    const addressEntry = await response.json();
-    addressEntry.forEach(adr => MainSelectors.mainContainer.appendChild(addressCard(adr)));
+    const responseData = await response.json();
+    return responseData;
+}
+
+const appendAddressCards = async () => {
+    const data = await getData();
+    const dataToAppend = Object.keys(await data).map((value) => {
+            return data[value];
+    })
+    dataToAppend.forEach(adrress => MainSelectors.mainContainer.appendChild(newAddressCard(adrress)))
 };
 
-getData();
+appendAddressCards();
 
 
 
+
+// async function getData() {
+//     const response = await fetch('http://localhost:3000/address_book');
+//     const responseData = await response.json();
+//     return responseData;
     
-/*Creates an AddressCard for each Address in the default address.JSON flat file */
-// AddressBook.forEach(address => {
-//     MainSelectors.mainContainer.appendChild(addressCard(address));
-// });
+// };
+
+ // const arrayOfData = Promise.resolve(Object.keys(await responseData).map((value) => {
+    //     return responseData[value];
+    // }
+
+
+//getData().forEach(adr => MainSelectors.mainContainer.appendChild(newAddressCard(adr)));
+
+
+
+
+//postData(data);
 

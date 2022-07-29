@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "watch": "webpack --watch",
-    "start": "concurrently --kill-others \"npm run server\" \"npm run start-jsS\"",
+    "node": "nodemon nodeServer/server.js",
     "server": "webpack serve --open",
-    "start-jsS": "json-server --watch ./src/database/address.json"
+    "start": "concurrently --kill-others \"npm run node\" \"npm run server\""
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,6 @@
     "@babel/preset-env": "^7.18.9",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
-    "fs": "^0.0.1-security",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.54.0",
     "sass-loader": "^13.0.2",
@@ -38,8 +37,7 @@
     "webpack-dev-server": "^4.9.3"
   },
   "dependencies": {
-    "axios": "^0.27.2",
     "concurrently": "^7.3.0",
-    "json-server": "^0.17.0"
+    "nodemon": "^2.0.19"
   }
 }
