@@ -25,8 +25,20 @@
   },
   "5": {
     "first_name": "Steve",
-    "last_name": "McDonald",    
+    "last_name": "McDonald",
     "phone": "01913478555",
     "email": "steve.mcdonald@corrie.co.uk"
+  },
+  "6": {
+    "first_name": "Kevin",
+    "last_name": "Mathers",
+    "phone": "345",
+    "email": "69420"
+  },
+  "7": {
+    "first_name": "Joe",
+    "last_name": "Richardson",
+    "phone": "69420",
+    "email": "BigBoi"
   }
 }

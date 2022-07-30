@@ -32,28 +32,22 @@ const addressRoutes = (app, fs) => {
         });
     };
 
-      
-
-    // READ
     app.get('/address_book', (req, res) => {
       readFile(data => {
         res.send(data);
       }, true);
     });
 
-    // CREATE
     app.post('/address_book', (req, res) => {
         readFile(data => {
-        // Note: this needs to be more robust for production use. 
-        // e.g. use a UUID or some kind of GUID for a unique ID value.
+        /*Post new record to an ID of 1 greater than our JSON Database's total records */
         const id = (Object.keys(data).length + 1);
-        const newAddress = Date.now().toString();
     
-        // add the new user
+        // add this to our database
         data[id] = req.body;
     
         writeFile(JSON.stringify(data, null, 2), () => {
-            res.status(200).send('new user added');
+            res.status(200).send(req.body);
         });
         }, true);
     });
