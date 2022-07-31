@@ -1,4 +1,5 @@
-/*Create a Module Pattern of relevant selectors we need to manipulate/use as parameters*/
+/*Create a Module Pattern of relevant selectors we need to manipulate/use as parameters
+  throughout our app.*/
 const MainSelectors = (() => {
     const mainContainer = document.querySelector(".mainContainer");
     const gitLogo = document.querySelector(".gh");

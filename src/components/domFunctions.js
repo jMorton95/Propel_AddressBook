@@ -23,6 +23,8 @@ const cardBot = function (addressEntry, uniqueID) {
     const cardUpdate = newElement("button", "update", '', "Update");
 
     cardUpdate.addEventListener("click", () => {
+      /*Pull a single data with GET, create an array of the returned Object properties,
+      then fill the form with our data we want to update. */
      (async function populateForm() {
       const form = grabForm();
       const serverObject = await getSingleData(cardUpdate.parentElement.parentElement.id);
@@ -43,6 +45,7 @@ const cardBot = function (addressEntry, uniqueID) {
   
     const cardDelete = newElement("button", "delete", '', "Delete");
     cardDelete.addEventListener("click", () => {
+      /**Call our DELETE function then remove the relevant Object from our DOM tree */
       deleteData(uniqueID);
       grabElement(uniqueID).remove();
       resetForm();

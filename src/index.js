@@ -19,14 +19,13 @@ const AddButtonEvents = (function () {
       openNewForm()
     });
     
-    /*On form "submission" create a new Address Object from form Inputs
-        then create a new AddressCard with our new Object */
     MainSelectors.submit.addEventListener("click", () => {
-
+    /*On Confirm "submission" create a new Address Object from form Inputs
+            then create a new AddressCard with our new Object */
       if (MainSelectors.submit.textContent === 'Confirm'){
         sendNewAddress(MainSelectors.mainContainer, newAddressObject(MainSelectors.formInputs));
         closeForm();
-
+        /**On Update "submission", update the existing Address Book entry and reflect changes in DOM*/
       } else if (MainSelectors.submit.textContent === 'Update') {
         updateNewAddress(MainSelectors.submit.classList, newAddressObject(MainSelectors.formInputs));
         closeForm();

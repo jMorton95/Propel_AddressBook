@@ -24,20 +24,6 @@ const addressFactory = (firstName, lastName, phone, email) => {
   }
 };
 
-
-
-function updateAddress(uniqueID) {
-   
-};
-  
-
-
-
-
-
-
-
-
 /**Here we slide a nodelist as a parameter (our form container in this instance)
  * We return an Object instantiated from our Address class. Using the spread operator
  *  to take each index as constructor arguments, which we create immediately by 
@@ -51,6 +37,4 @@ function updateAddress(uniqueID) {
 };
 
 
-
-
-export { newElement, updateAddress, newAddressObject };
+export { newElement, newAddressObject };

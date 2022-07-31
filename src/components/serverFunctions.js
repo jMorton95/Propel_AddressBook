@@ -63,7 +63,7 @@ const deleteData = async (addressID) => {
     });
 }
 
-//NOT YET BUILT. (However should work in theory)
+//Pass in an ID to find in the database, then replace it with a new Object, receive the same object from server when successful. 
 const updateData = async (addressID, addressEntry) => {
     const response = await fetch (`${endPoint}/${addressID}`, {
         method: 'PUT',
@@ -75,21 +75,23 @@ const updateData = async (addressID, addressEntry) => {
     return await response.json();
 }
 
+
+//This function handles updating our Frontend to reflect updates in our database.
 const updateNewAddress = async (addressID, addressEntry) => {
+    /**Create an Array of the returned Object data from our PUT request,
+     * select the DOM tree we've already POSTED an Object to, then update each DOM element
+     * with the new address inputs.
+     */
     const data = await updateData(addressID, addressEntry);
     const dataToAppend = Object.keys(await data).map((object) => {
         return data[object];
       });
-    console.log(dataToAppend);
     const container = document.getElementById(`${addressID}`);
-    console.log(container);
     const cardItems = container.querySelectorAll('div > .firstName, div > .lastName, div > .phone, div > .address');
-    console.log(cardItems);
 
     for (let x = 0; x < cardItems.length; x++){
         cardItems[x].textContent = dataToAppend[x];
     }
-
 
 }
   
