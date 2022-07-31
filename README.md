@@ -3,7 +3,16 @@
 
 ### To Install and Run this application enter the following commands in your terminal:
 `git clone https://github.com/jMorton95/Propel_AddressBook`  
+`cd Propel_AddressBook`  
 `npm install`  
+`cd nodeServer`  
+`npm install`  
+`cd ..`  
+`npm run test`  
+`npm start`  
+
+### Or if using the .zip version:
+`Unzip the file and open your terminal inside of Propel_AddressBook`  
 `npm run test`  
 `npm start`  
   
