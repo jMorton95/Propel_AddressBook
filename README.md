@@ -13,6 +13,8 @@
 
 ### Or if using the .zip version:
 `Unzip the file and open your terminal inside of Propel_AddressBook`  
+  
+`npm install`  
 `npm run test`  
 `npm start`  
   
