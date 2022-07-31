@@ -1,44 +1,32 @@
 {
-  "1": {
-    "first_name": "David",
-    "last_name": "Platt",
-    "phone": "01913478234",
-    "email": "david.platt@corrie.co.uk"
-  },
-  "2": {
-    "first_name": "Jason",
-    "last_name": "Grimshaw",
-    "phone": "01913478123",
-    "email": "jason.grimshaw@corrie.co.uk"
-  },
-  "3": {
-    "first_name": "Ken",
-    "last_name": "Barlow",
-    "phone": "019134784929",
-    "email": "ken.barlow@corrie.co.uk"
-  },
-  "4": {
-    "first_name": "Rita",
-    "last_name": "Sullivan",
-    "phone": "01913478555",
-    "email": "rita.sullivan@corrie.co.uk"
-  },
-  "5": {
+  "faf86400-103f-11ed-8b54-25fc05d0cd5e": {
     "first_name": "Steve",
     "last_name": "McDonald",
     "phone": "01913478555",
     "email": "steve.mcdonald@corrie.co.uk"
   },
-  "6": {
-    "first_name": "Kevin",
-    "last_name": "Mathers",
-    "phone": "345",
-    "email": "69420"
+  "217e68f0-103f-11ed-b91c-4da293fc03a4": {
+    "first_name": "David",
+    "last_name": "Platt",
+    "phone": "01913478234",
+    "email": "david.platt@corrie.co.uk"
   },
-  "7": {
-    "first_name": "Joe",
-    "last_name": "Richardson",
-    "phone": "69420",
-    "email": "BigBoi"
+  "b66882c0-103f-11ed-9cf6-ef996cac6d5b": {
+    "first_name": "Jason",
+    "last_name": "Grimshaw",
+    "phone": "01913478123",
+    "email": "jason.grimshaw@corrie.co.uk"
+  },
+  "b6c521b0-103f-11ed-9b81-a965985532d4": {
+    "first_name": "Ken",
+    "last_name": "Barlow",
+    "phone": "019134784929",
+    "email": "ken.barlow@corrie.co.uk"
+  },
+  "b712f390-103f-11ed-883c-5b15f3ba4cd5": {
+    "first_name": "Rita",
+    "last_name": "Sullivan",
+    "phone": "01913478555",
+    "email": "rita.sullivan@corrie.co.uk"
   }
 }

@@ -87,7 +87,7 @@ main {
 .cardContainer {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
-    
+    border-radius: 32px;
     height: 300px;
     width: 300px;
     @include cardDisplay;
