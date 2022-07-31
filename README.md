@@ -1,14 +1,14 @@
 # Propel_AddressBook
 ## Address Book Application for Propel Tech's Technical Assessment:  
 
-### `To Install and Run this application enter the following commands in your terminal:`
+### To Install and Run this application enter the following commands in your terminal:
 `git clone https://github.com/jMorton95/Propel_AddressBook`  
 `npm install`  
 `npm run test`  
 `npm start`  
   
 ### Frontend Stack:  
-`HTML5, SCSS, JS ES6, WebPackJS:  Babel transcompiler, SASS preprocessor, Concurrently plugin.`  
+`HTML5, SCSS, JS ES6, WebPackJS:  Babel transcompiler, SASS preprocessor, Concurrently plugin, JEST testing library`  
 
 ### Backend Stack:  
 `Node.js: Express framework, CORS, File System Library, Unique User ID API ('credit' : https://www.uuidtools.com/uuid-versions-explained)`
