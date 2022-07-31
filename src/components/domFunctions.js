@@ -1,5 +1,6 @@
-import { newElement, updateAddress, grabElement } from "./functions";
-import { deleteData } from "./serverFunctions";
+import { newElement, updateAddress } from "./functions";
+import { deleteData, getSingleData } from "./serverFunctions";
+import { MainSelectors } from "./selectors";
 
 /** Here we create 3 Sub-Components that will be appended inside of an Address Card Container.
     We're using my newElement function to handle creation of DOM elements.
@@ -13,21 +14,38 @@ const cardTop = function (addressEntry) {
     return newElement("div", "cardTop", "", "", cardFirstName, cardLastName);
 };
 const cardMid = function (addressEntry) {
-    const cardPhone = newElement("text", "phone", '', addressEntry.phone);
+    const cardPhone = newElement("div", "phone", '', addressEntry.phone);
     const cardAddress = newElement("div", "address", '', addressEntry.email);
   
     return newElement("div", "cardMid", '', "", cardPhone, cardAddress);
 };
 const cardBot = function (addressEntry, uniqueID) {
     const cardUpdate = newElement("button", "update", '', "Update");
+
     cardUpdate.addEventListener("click", () => {
-      updateEvent(addressEntry);
+     (async function populateForm() {
+      const form = grabForm();
+      const serverObject = await getSingleData(cardUpdate.parentElement.parentElement.id);
+
+      const objectValues = Object.keys(await serverObject).map((value) => {
+        return serverObject[value];
+      });
+      for (let x = 0; x < form.length; x++){
+        form[x].value = objectValues[x];
+      }
+      })();
+
+      openNewForm();
+      MainSelectors.submit.textContent = 'Update';
+      MainSelectors.submit.classList = (`${cardUpdate.parentElement.parentElement.id}`);
+      
     });
   
     const cardDelete = newElement("button", "delete", '', "Delete");
     cardDelete.addEventListener("click", () => {
       deleteData(uniqueID);
       grabElement(uniqueID).remove();
+      resetForm();
     });
   
     return newElement("div", "cardBot", "", "", cardUpdate, cardDelete);
@@ -50,5 +68,39 @@ const cardBot = function (addressEntry, uniqueID) {
       cardBot(addressEntry, uniqueID)
     );
 };
-  
-export { newAddressCard };
+
+
+/*Return all of our Form Nodes */
+const grabForm = () => document.querySelectorAll('.formContainer > *');
+
+//Clear Form Values
+const resetForm = () => {
+  const inputs = document.querySelectorAll(`.formContainer > input`);
+  inputs.forEach(input => {
+    input.value = '';
+  })
+};
+
+//Simply toggle a CSS class that contains visibility rules.
+const openNewForm = () => {
+  document.querySelector('.formContainer').classList.add("formActive");
+};
+
+const closeForm = () => {
+  document.querySelector('.formContainer').classList.remove("formActive");
+}
+
+
+
+/*Only to be embedded inside our Update Button's context.
+  Grab the three container nodes */
+const grabCardSections = (updateButton) => { 
+  const id = updateButton.parentElement.parentElement.id;
+  return document.querySelectorAll(`#${id} > div`);
+}
+
+/*I'm embedding my Database ID's in our container's CSS class, this function
+is used to retrieve them for passing to our PUT and DELETE methods */
+const grabElement = uniqueID => document.getElementById(uniqueID);
+
+export { newAddressCard, grabElement, resetForm, openNewForm, closeForm };

@@ -6,11 +6,11 @@
 `npm install`  
 `npm start`  
   
-### Front-end Stack:  
+### Frontend Stack:  
 `HTML5, SCSS, JS ES6, WebPackJS:  Babel transcompiler, SASS preprocessor, Concurrently plugin.`  
 
-### Back-end Stack:  
-`Node.js: Express framework, CORS, File System Library`
+### Backend Stack:  
+`Node.js: Express framework, CORS, File System Library, Unique User ID API ('credit' : https://www.uuidtools.com/uuid-versions-explained)`
   
 ## Progress Log:  
 ### Session 1 26/07:     
@@ -36,9 +36,9 @@ At first I hosted a 'Fake JSON-Server' on a web-hosting service that made my JSO
 
 Then I went a step further and used a JSON-Server plugin that was essentially the same thing as the hosted fake server page. However I decided against it as I wasn't learning anything about backend development from this solution, so it didn't feel valuable.  
 
-Finally, I settled on creating a NODE.js back-end server within my application folder. My Frontend runs on localhost:8080 while my Backend runs on localhost:3000. I'm using a webpack library called 'Concurrently', this allows me to run two scripts simultaneously and will terminate both if each fails.  
+Finally, I settled on creating a NODE.js back-end server within my application folder. My Frontend runs on localhost:8080 while my Backend runs on localhost:3000. I'm using a webpack library called 'Concurrently', this allows me to run two scripts simultaneously and will terminate both if either fails.  
 
-Currently my Backend contains a read and a write function that slightly refactors the READ and WRITE methods of File System, these take helper parameters and our FIlePath that feed into the base methods calls to reduce code replication in my GET and POST API methods.  
+Currently my Backend contains a read and a write function that slightly refactors the READ and WRITE methods of File System, these take helper parameters (with defaults) and our FilePath that feed into the base methods calls to reduce code replication in my GET and POST API methods.  
 
 I've created a GET method that calls our READ function and makes our JSON file available at the End Point: "localhost:3000/address_book", as well as a POST method that takes a request from the Frontend, calls our WRITE function and stores it as new JSON Object in our flat file. 
 
@@ -53,7 +53,7 @@ These were all completely new to me this week, it's been challenging learning at
   
   
 ### Session 3 30/07:   
-Today refactored my Backend with a Unique User Identifier library that will generate unique ID's for me to use as both solid database entries as well as to point to the specific entries I require to DELETE or update with PUT requests.  
+Today refactored my Backend with a Unique User Identifier API that will generate unique ID's for me to use as both solid database entries as well as to point to the specific entries I require to DELETE or update with PUT requests.  
 
 I've altered these methods to send my Object Data as a Key (unique ID) Value (the object itself) Pair, as well as added asynchronous methods of splitting these pairs apart, extracting the ID as well as the completely object itself for rendering on my Frontend.  
 

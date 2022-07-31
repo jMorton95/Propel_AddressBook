@@ -1,3 +1,4 @@
+import { grabElement } from "./domFunctions";
 /**Here we take an bunch of logical parameters, with our last being an open ended parameter with a
  * spread operator for as many children elements as we wish to append, then return a our new element.
  */
@@ -23,9 +24,7 @@ const addressFactory = (firstName, lastName, phone, email) => {
   }
 };
 
-/*I'm embedding my Database ID's in our container's CSS class, this function
-is used to retrieve them for passing to our PUT and DELETE methods */
-const grabElement = uniqueID => document.getElementById(uniqueID);
+
 
 function updateAddress(uniqueID) {
    
@@ -34,10 +33,8 @@ function updateAddress(uniqueID) {
 
 
 
-//Simply toggle a CSS class that contains visibility rules.
-const toggleNewForm = (formSelector) => {
-  formSelector.classList.toggle("formActive");
-};
+
+
 
 
 
@@ -47,7 +44,7 @@ const toggleNewForm = (formSelector) => {
  *  creating an Array from our Nodelist and mapping the input.VALUE attribute from
  *  each node.
  */
- function submitNewAddress(formSelector) {
+ function newAddressObject(formSelector) {
   return addressFactory(
     ...Array.from(formSelector).map((input) => input.value)
   );
@@ -56,4 +53,4 @@ const toggleNewForm = (formSelector) => {
 
 
 
-export { newElement, updateAddress, grabElement, toggleNewForm, submitNewAddress, addressFactory };
+export { newElement, updateAddress, newAddressObject };

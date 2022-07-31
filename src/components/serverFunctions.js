@@ -1,13 +1,17 @@
 import { newAddressCard } from "./domFunctions";
 
-const endPoint = 'http://localhost:3001/address_book';
+const endPoint = 'http://localhost:3000/address_book';
 
 /**Asynchronously gets the data we've made available on our GET endpoint 
  * on our backend, then parses and returns the response to JSON.*/
 const getData = async () => {
     const response = await fetch(endPoint);
-    const responseData = await response.json();
-    return responseData;
+    return await response.json();
+};
+
+const getSingleData = async (uniqueID) => {
+    const response = await fetch(`${endPoint}/${uniqueID}`);
+    return await response.json(); 
 };
 
 /**Asychronously gets our data, maps the resulting object to an Array, then calls
@@ -17,7 +21,6 @@ const appendAddressCards = async (container) => {
     const data = await getData();
     const uniqueIDs = Object.keys(data);
     const dataToAppend = Object.keys(await data).map((object) => {
-    
       return data[object];
     });
 
@@ -38,8 +41,7 @@ const postData = async (addressObject) => {
         },
         body: JSON.stringify(addressObject)
     });
-    const confirmedData = await response.json();
-    return confirmedData;
+    return await response.json();
 }
 
 /**After a POST request, append a new AddressCard with the object we just added */
@@ -50,6 +52,7 @@ const sendNewAddress = async (container, addressObject) => {
     
     await container.append(newAddressCard(grabObject(), grabId()));
 }
+
 //Simply pass the ID of a database entry we want to delete from the server
 const deleteData = async (addressID) => {
     const response = await fetch (`${endPoint}/${addressID}`, {
@@ -59,6 +62,7 @@ const deleteData = async (addressID) => {
         }
     });
 }
+
 //NOT YET BUILT. (However should work in theory)
 const updateData = async (addressID, addressEntry) => {
     const response = await fetch (`${endPoint}/${addressID}`, {
@@ -66,8 +70,27 @@ const updateData = async (addressID, addressEntry) => {
         headers: {
             'Content-type': 'application/json'
         },
-        body: addressEntry
+        body: JSON.stringify(addressEntry)
     });
+    return await response.json();
+}
+
+const updateNewAddress = async (addressID, addressEntry) => {
+    const data = await updateData(addressID, addressEntry);
+    const dataToAppend = Object.keys(await data).map((object) => {
+        return data[object];
+      });
+    console.log(dataToAppend);
+    const container = document.getElementById(`${addressID}`);
+    console.log(container);
+    const cardItems = container.querySelectorAll('div > .firstName, div > .lastName, div > .phone, div > .address');
+    console.log(cardItems);
+
+    for (let x = 0; x < cardItems.length; x++){
+        cardItems[x].textContent = dataToAppend[x];
+    }
+
+
 }
   
-export {  appendAddressCards, sendNewAddress, deleteData };
+export { appendAddressCards, sendNewAddress, deleteData, getSingleData, updateNewAddress };

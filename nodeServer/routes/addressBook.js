@@ -38,10 +38,16 @@ const addressRoutes = (app, fs) => {
         });
     };
 
-    //Simply get all of our objects from the database.
-    app.get('/address_book', (req, res) => {
+    /*UPDATED: 
+      Our GET endpoint has been configured to handle either a static endpoint, or an endpoint affixed
+       with an ID parameter. I've created a local variable that of our ID and refactored our readFile to 
+       handle multiple states */
+    app.get(['/address_book/', '/address_book/:id'], (req, res) => {
+      const id = req.params["id"];
       readFile(data => {
-        res.send(data);
+        /**Ternary condition that checks if ID exists, then after resolving as a boolean decides
+         * to send either just a single JSON object, or all JSON objects*/
+        (id) ? res.send(data[id]) : res.send(data);
       }, true);
     });
 
@@ -63,11 +69,11 @@ const addressRoutes = (app, fs) => {
     app.put('/address_book/:id', (req, res) => {
       readFile(data => {
         //Grabs our Database id from the request, then overwrites it with the sent object data.
-        const userId = req.params['id'];
-        data[userId] = req.body;
+        const addressID = req.params['id'];
+        data[addressID] = req.body;
 
         writeFile(JSON.stringify(data, null, 2), () => {
-          res.status(200).send(`users id:${userId} updated`);
+          res.status(200).send(data[addressID]);
         });
       }, true);
     });
