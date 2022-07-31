@@ -4,6 +4,7 @@
 ### `To Install and Run this application enter the following commands in your terminal:`
 `git clone https://github.com/jMorton95/Propel_AddressBook`  
 `npm install`  
+`npm run test`  
 `npm start`  
   
 ### Frontend Stack:  
@@ -53,7 +54,7 @@ These were all completely new to me this week, it's been challenging learning at
   
   
 ### Session 3 30/07:   
-Today refactored my Backend with a Unique User Identifier API that will generate unique ID's for me to use as both solid database entries as well as to point to the specific entries I require to DELETE or update with PUT requests.  
+Today I refactored my Backend with a Unique User Identifier API that will generate unique ID's for me to use as both solid database entries as well as to point to the specific entries I require to DELETE or update with PUT requests.  
 
 I've altered these methods to send my Object Data as a Key (unique ID) Value (the object itself) Pair, as well as added asynchronous methods of splitting these pairs apart, extracting the ID as well as the completely object itself for rendering on my Frontend.  
 
@@ -69,7 +70,26 @@ Updated the top of this README to show a quick installation manual.
 -- Learned how to modify a URL path with a specific JSON property as a pointer for PUT and DELETE methods.  
 -- A deeper understanding of how to create RESTFUL API's and call their built-in properties and methods.  
   
-Tomorrow I'll need create a Frontend form component for updating database entries to interface with my PUT method, implement JEST testing Library and create some unit and integration tests.
+Tomorrow I'll need create a Frontend form component for updating database entries to interface with my PUT method, implement JEST testing Library and create some unit and integration tests.  
+  
+    
+### Session 4 31/07:  
+The main goal of today was to update my Frontend with functionality to make my DOM reflect updates to my Backend database. This was achieved by creating some functions that parses JSON object data returned from a PUT request and then finds the Address Card it needs to ammend and finally updates each field in the DOM tree with the updated data.  
+Also cleaned up some syntax, added helper functions for document flow and added extra comments.  
+`As of now, this is a fully functioning (albeit rudimentary) Frontend single-page application with data rendered and manipulated from a RESTful API with CRUD operations`  
+  
+I only had a small amount of time remaining to figure out testing my endpoints, for this I included the JEST testing library and SUPERTEST for helping with testing my endpoints.  
+Due to lack of time I replicated my node server in a testing folder with my test file as 'index.test.js'.  
+I've added a single integration test that checks that the content of my GET request matches a defined testing expectation.  
+  
+`<-- Conclusions -->`  
+  
+This has been a great assessment (and now portfolio project) that's forced me outside of my comfort zone to learn new technologies that I haven't had any prior experience with:  
+(Backend, Endpoints, CRUD Operations, Reading/Writing data, RESTful API, Server routing, Asynchronous functions, JSON Parsing)  
+And has also pushed the boundaries of my current Frontend knowledge, I've quickly become more competent at writing powerful Functions and I've had to think outside of the box to find solutions to many problems that this Project demanded.  
+It would have been great if I had the time to take my testing further and if I could create this project again with the knowledge I've acquired through this process;  
+I would build and define my Backend endpoints and HTTP methods first, implement indepth testing before creating my database and extending my implementation to include a fully operable SQL database (with extra learning).
+
 
 
 
