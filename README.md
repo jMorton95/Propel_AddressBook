@@ -19,10 +19,10 @@
 `npm start`  
   
 ### Frontend Stack:  
-`HTML5, SCSS, JS ES6, WebPackJS:  Babel transcompiler, SASS preprocessor, Concurrently plugin, JEST testing library`  
+`HTML5, SCSS, JS ES6, WebPackJS:  Babel transcompiler, SASS preprocessor, Concurrently plugin`  
 
 ### Backend Stack:  
-`Node.js: Express framework, CORS, File System Library, Unique User ID API ('credit' : https://www.uuidtools.com/uuid-versions-explained)`
+`Node.js: Express framework, CORS, File System Library, Unique User ID API ('credit' : https://www.uuidtools.com/uuid-versions-explained), JEST testing library`
   
 ## Progress Log:  
 ### Session 1 26/07:     
@@ -56,7 +56,7 @@ I've created a GET method that calls our READ function and makes our JSON file a
 
 I've added a function that asynchronously GETS data from our Node localhost:3000/address_book endpoint, parses it with .json() and returns it, I've also created an asynchronous function that awaits a call to our GET function, then we parse our JSON object to an array with .map on Object.keys and then we call our Frontend function to render an address entry for each index in our array. This results in the same page I had with my Day 1 implementation, but we're now using a functioning backend server to store and pull our data from. Progress!
 
-`<-- Key Learning Points: -->`
+`<-- Key Learning Points: -->`  
 -- Node Backend server configuration from zero prior knowledge.    
 -- Understanding File System methods and filepath routing, express.js GET and POST methods and the context of a response and request.  
 -- Asynchronous functions and utilising their returns with the AWAIT Keyword.  
